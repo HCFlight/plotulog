@@ -51,6 +51,6 @@ function retState = getNavState(state)
       retState = "Max";
     otherwise
       retState = "Not supported";
-    endswitch
-  endfunction
+  end
+  
   

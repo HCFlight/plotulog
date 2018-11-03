@@ -6,7 +6,7 @@ function [time_sensor acc_xyz gyro_xyz] = readSensorData(folderName)
   endif
   fname_sens = sprintf("%slog%s_sensor_combined_0.csv",folderName, fnum);
   data_sens_exist = true;
-  if(!checkFile(fname_sens)) data_sens_exist = false; endif;
+  if(~checkFile(fname_sens)) data_sens_exist = false; endif;
   
   if(data_sens_exist)
     data_sens = dlmread(fname_sens,',',1,0);  [row4 col4] = size(data_sens);
