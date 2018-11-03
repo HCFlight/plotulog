@@ -18,8 +18,8 @@ function euler = quaternionToEuler(q0, q1, q2, q3)
   t3 =  2*(q2*q3 + q0*q1);
   t4 = -2*(q1*q1 + q2*q2) + 1;
   
-  if(t2 > 1) t2 = 1.0; endif;
-  if(t2 < -1) t2 = -1; endif;
+  if(t2 > 1) t2 = 1.0; end;
+  if(t2 < -1) t2 = -1; end;
   
   roll  = atan2(t3, t4) * 180/pi;
   pitch = asin(t2) * 180/pi;
@@ -29,4 +29,4 @@ function euler = quaternionToEuler(q0, q1, q2, q3)
   yaw = atan2(siny_cosp, cosy_cosp) * 180/pi;
   
   euler = [ roll pitch yaw ];
-endfunction
+
