@@ -32,11 +32,11 @@ For convenience, change the .ulg file as
 
 ## Run plotUlog
 
-Launch octave and go to the folder you just cloned or unzipped.
+Launch matlab and go to the folder you just cloned or unzipped.
 
 Copy a ULog file into the folder.
 
-In octave terminal, enter
+In matlab terminal, enter
 
 ```bash
 plotUlog("log###.ulg","Description")
