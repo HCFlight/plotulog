@@ -16,21 +16,21 @@ function flagLandState(yl, flagYstep, time_land_detect, land_detect)
         n=1;
         switch(j)
           case 1
-            if(takeoff) msg = "Land"; takeoff = false; 
-            else msg = sprintf("Take Off @%.2f",time_land_detect(i)); takeoff = true; end; 
+            if(takeoff) msg = 'Land'; takeoff = false; 
+            else msg = sprintf('Take Off @%.2f',time_land_detect(i)); takeoff = true; end; 
             n = 1; 
           case 2 
-            msg = "Falling"; n=3;
+            msg = 'Falling'; n=3;
           case 3 
-            if( (pos_x - pos_x_touched_prev) < 1 ) msg = ""; 
-            else msg = "Touched"; n=3; end;
+            if( (pos_x - pos_x_touched_prev) < 1 ) msg = ''; 
+            else msg = 'Touched'; n=3; end;
             pos_x_touched_prev = pos_x;
           case 4
-            if( (pos_x - pos_x_mayLanded_prev) < 1 ) msg = "";
-            else msg = "Landed?";  end;
+            if( (pos_x - pos_x_mayLanded_prev) < 1 ) msg = '';
+            else msg ='Landed?';  end;
             pos_x_mayLanded_prev = pos_x; n=2;
         end
-        plot([pos_x; pos_x],[yl(1); yl(2)], "color", "r", "LineWidth", 1.3, "linestyle", "-.");
+        plot([pos_x; pos_x],[yl(1); yl(2)], 'color', 'r', 'LineWidth', 1.3, 'linestyle', '-.');
         text(pos_x, yl(2)-flagYstep*n, msg, 'FontSize',12);
       end
     end

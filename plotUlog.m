@@ -20,34 +20,34 @@ input_folderName = false;
 argnum = length(varargin);
 arg1 = varargin{1};
 % Check if first input argument is .ulg file
-disp("arg1")
+disp('arg1')
 disp(argnum)
 try
     C=strsplit(arg1,'.');
-    if(C{2} == "ulg")
+    if(C{2} =='ulg')
         ulogFileName = varargin{1}
        D = strsplit(ulogFileName,'.');
-       E =strsplit(D{1}, "log");
+       E =strsplit(D{1}, 'log');
         input_ulogNum = E{2};
         % Check if descriptive folder name supplied
         
         if(argnum>1)
             arg2 = varargin{2};
-            folderName = sprintf("%s_%s", input_ulogNum, arg2)
+            folderName = sprintf('%s_%s', input_ulogNum, arg2);
             disp(folderName);
         else
             folderName = input_ulogNum
         end
         %if(~checkFile(ulogFileName)) return; end;
-        cmd = sprintf("mkdir %s", folderName);
+        cmd = sprintf('mkdir %s', folderName);
         disp(cmd);
         if(system(cmd)==0)
-            cmd = sprintf("ulog2csv %s -o %s", ulogFileName, folderName);
-            disp("Covnerting ulg to csv..."); system(cmd);
+            cmd = sprintf('ulog2csv %s -o %s', ulogFileName, folderName);
+            disp('Covnerting ulg to csv...'); system(cmd);
         else
-            disp("Folder exists")
+            disp('Folder exists')
         end
-        folderName = sprintf("%s/",folderName);
+        folderName = sprintf('%s/',folderName);
     end
 catch
     % First argument is folder name
@@ -64,20 +64,20 @@ else
 end
 disp(folderName);
 fnames = dir('folderName');
-fname_att = sprintf("%slog%s_vehicle_attitude_0.csv",folderName, fnum);
-fname_att_sp = sprintf("%slog%s_vehicle_attitude_setpoint_0.csv",folderName, fnum);
-fname_lp = sprintf("%slog%s_vehicle_local_position_0.csv",folderName, fnum);
-fname_lp_sp = sprintf("%slog%s_vehicle_local_position_setpoint_0.csv",folderName, fnum);
-fname_flow = sprintf("%slog%s_optical_flow_0.csv",folderName, fnum);
-fname_sens = sprintf("%slog%s_sensor_combined_0.csv",folderName, fnum);
-fname_debug_vect = sprintf("%slog%s_debug_vect_0.csv",folderName, fnum);
-fname_dist = sprintf("%slog%s_distance_sensor_0.csv",folderName, fnum);
-fname_input_rc = sprintf("%slog%s_input_rc_0.csv",folderName, fnum);
-fname_power_sys = sprintf("%slog%s_system_power_0.csv",folderName, fnum);
-fname_batt_sts = sprintf("%slog%s_battery_status_0.csv",folderName, fnum);
-fname_air_data = sprintf("%slog%s_vehicle_air_data_0.csv",folderName, fnum);
-fname_land_detect = sprintf("%slog%s_vehicle_land_detected_0.csv",folderName, fnum);
-fname_v_status = sprintf("%slog%s_vehicle_status_0.csv",folderName, fnum);
+fname_att = sprintf('%slog%s_vehicle_attitude_0.csv',folderName, fnum);
+fname_att_sp = sprintf('%slog%s_vehicle_attitude_setpoint_0.csv',folderName, fnum);
+fname_lp = sprintf('%slog%s_vehicle_local_position_0.csv',folderName, fnum);
+fname_lp_sp = sprintf('%slog%s_vehicle_local_position_setpoint_0.csv',folderName, fnum);
+fname_flow = sprintf('%slog%s_optical_flow_0.csv',folderName, fnum);
+fname_sens = sprintf('%slog%s_sensor_combined_0.csv',folderName, fnum);
+fname_debug_vect = sprintf('%slog%s_debug_vect_0.csv',folderName, fnum);
+fname_dist = sprintf('%slog%s_distance_sensor_0.csv',folderName, fnum);
+fname_input_rc = sprintf('%slog%s_input_rc_0.csv',folderName, fnum);
+fname_power_sys = sprintf('%slog%s_system_power_0.csv',folderName, fnum);
+fname_batt_sts = sprintf('%slog%s_battery_status_0.csv',folderName, fnum);
+fname_air_data = sprintf('%slog%s_vehicle_air_data_0.csv',folderName, fnum);
+fname_land_detect = sprintf('%slog%s_vehicle_land_detected_0.csv',folderName, fnum);
+fname_v_status = sprintf('%slog%s_vehicle_status_0.csv',folderName, fnum);
 
 %% Check files
 data_att_avail = true; data_att_sp_avail = true; data_lp_avail = true; data_lp_sp_avail = true; data_dbg_vect_avail = true; data_flow_avail = true;

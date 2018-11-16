@@ -20,18 +20,18 @@ function plotPositionControl(time_lp, lp_xyz, lp_Vxyz,  ...
     subplot(211)
       plot(time_flow, -(flow_x-1)/10, 'LineWidth',1.5);
       grid on;
-      set (gca, 'xminorgrid', 'on');  xlabel("Time(sec)");  ylabel("X (m)");  title("Optical flow integral (Body Frame X)");
+      set (gca, 'xminorgrid', 'on');  xlabel('Time(sec)');  ylabel('X (m)');  title('Optical flow integral (Body Frame X)');
       hold on;
       plot(time_input_rc, input_x/5, 'LineWidth',1.2);
-      legend("Flow int X", "RC Input Roll");
+      legend('Flow int X', 'RC Input Roll');
       hold off;
     subplot(212)
       plot(time_flow, -(flow_y-1)/10, 'LineWidth',1.5);
       grid on;
-      set (gca, 'xminorgrid', 'on');  xlabel("Time(sec)");  ylabel("Y (m)");  title("Optical flow integral (Body Frame Y)");
+      set (gca, 'xminorgrid', 'on');  xlabel('Time(sec)');  ylabel('Y (m)');  title('Optical flow integral (Body Frame Y)');
       hold on;
       plot(time_input_rc, input_y/5, 'LineWidth',1.2);
-      legend("Flow int Y", "RC Input Pitch");
+      legend('Flow int Y', 'RC Input Pitch');
       hold off;
   end
   %% Draw plot for position x, y control
@@ -40,11 +40,11 @@ function plotPositionControl(time_lp, lp_xyz, lp_Vxyz,  ...
   subplot(211)
     plot(time_lp,lp_xyz(:,1), 'r-','LineWidth',1.5);
     grid on;
-    set (gca, 'xminorgrid', 'on');  xlabel("Time(sec)");  ylabel("X (m)");  title("Position X (To East)");
+    set (gca, 'xminorgrid', 'on');  xlabel('Time(sec)');  ylabel('X (m)');  title('Position X (To East)');
     xlim( [ time_lp(1) time_lp(length(time_lp)) ]);    
     hold on;
     plot(time_sp, sp_xyz(:,1), 'LineWidth',1.5);
-    legend("Local pos", "Set Point");
+    legend('Local pos', 'Set Point');
     %% Add flags for state change
     yl = ylim;
     flagYstep = (yl(2) - yl(1))/15;
@@ -53,17 +53,17 @@ function plotPositionControl(time_lp, lp_xyz, lp_Vxyz,  ...
   subplot(212)
     plot(time_lp, lp_xyz(:,2), 'r-','LineWidth',1.5);  
     grid on;
-    set (gca, 'xminorgrid', 'on'); xlabel("Time(sec)");  ylabel("Y (m)");  title("Position Y (To North)");
+    set (gca, 'xminorgrid', 'on'); xlabel('Time(sec)');  ylabel('Y (m)');  title('Position Y (To North)');
     xlim( [ time_lp(1) time_lp(length(time_lp)) ]);
     hold on;
     plot(time_sp, sp_xyz(:,2), 'LineWidth',1.5);
-    legend("Local pos", "Set Point");
+    legend('Local pos', 'Set Point');
     %% Add flags for state change
     yl = ylim;
     flagYstep = (yl(2) - yl(1))/15;
     flagControlState(yl, flagYstep, time_v_status, v_status);
     hold off;
-  saveName = sprintf("%sPosition_Control.png", path)
+  saveName = sprintf('%sPosition_Control.png', path)
   saveas(h_xy,saveName);
   
   %% Draw plot for speed x, y control
@@ -73,11 +73,11 @@ function plotPositionControl(time_lp, lp_xyz, lp_Vxyz,  ...
     plot(time_lp,lp_Vxyz(:,1), 'LineWidth',1.5);
     xlim( [ time_lp(1) time_lp(length(time_lp)) ]);
     grid on;
-    set (gca, 'xminorgrid', 'on');  xlabel("Time(sec)");  ylabel("X speed (m/s)");  title("Velocity X (To North)");
+    set (gca, 'xminorgrid', 'on');  xlabel('Time(sec)');  ylabel('X speed (m/s)');  title('Velocity X (To North)');
     xlim( [ time_lp(1) time_lp(length(time_lp)) ]);
     hold on;
     plot(time_sp, sp_Vxyz(:,1),'LineWidth',1);
-    legend("Local pos", "Set Point");
+    legend('Local pos', 'Set Point');
     %% Add flags for state change
     yl = ylim;
     flagYstep = (yl(2) - yl(1))/15;
@@ -87,17 +87,17 @@ function plotPositionControl(time_lp, lp_xyz, lp_Vxyz,  ...
     plot(time_lp, lp_Vxyz(:,2), 'LineWidth',1.5);  
     xlim( [ time_lp(1) time_lp(length(time_lp)) ]);
     grid on;
-    set (gca, 'xminorgrid', 'on'); xlabel("Time(sec)");  ylabel("Y speed (m/s)");  title("Velocity Y (To East)");
+    set (gca, 'xminorgrid', 'on'); xlabel('Time(sec)');  ylabel('Y speed (m/s)');  title('Velocity Y (To East)');
     xlim( [ time_lp(1) time_lp(length(time_lp)) ]);
     hold on;
     plot(time_sp, sp_Vxyz(:,2),'LineWidth',1);
-    legend("Local pos", "Set Point");
+    legend('Local pos', 'Set Point');
     %% Add flags for state change
     yl = ylim;
     flagYstep = (yl(2) - yl(1))/15;
     flagControlState(yl, flagYstep, time_v_status, v_status);
     hold off;
-  saveName = sprintf("%sPosition_VelocityControl.png", path)
+  saveName = sprintf('%sPosition_VelocityControl.png', path)
   saveas(h_vxy,saveName);
   
   %% Draw 3-D position estimation
@@ -105,7 +105,7 @@ function plotPositionControl(time_lp, lp_xyz, lp_Vxyz,  ...
   figure('Position',[800,450,600,400]);
   h = plot3(lp_xyz(:,1), lp_xyz(:,2), -lp_xyz(:,3), 'LineWidth', 1.5);
   grid minor;
-  xlabel("X (m)");  ylabel("Y (m)"); zlabel("Height (m)"); title("Position Estimation X,Y,Z");
+  xlabel('X (m)');  ylabel('Y (m)'); zlabel('Height (m)'); title('Position Estimation X,Y,Z');
   for k=1:length(lp_xyz(:,1));
     set(h, 'XData', lp_xyz((1:k),1));
     set(h, 'YData', lp_xyz((1:k),2));
