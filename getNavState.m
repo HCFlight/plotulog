@@ -6,51 +6,51 @@ function retState = getNavState(state)
   % Date: 2018/9/28
   switch(state)
     case 0
-      retState = "Manual";
+      retState = 'Manual';
     case 1
-      retState = "ALTCTL";
+      retState = 'ALTCTL';
     case 2
-      retState = "POSCTL";
+      retState = 'POSCTL';
     case 3
-      retState = "AUTO";
+      retState = 'AUTO';
     case 4
-      retState = "LOITER";
+      retState = 'LOITER';
     case 5
-      retState = "RTL";
+      retState = 'RTL';
     case 6
-      retState = "RECOVER";
+      retState = 'RECOVER';
     case 7
-      retState = "RTGS";
+      retState = 'RTGS';
     case 8
-      retState = "LandEngFail";
+      retState = 'LandEngFail';
     case 9
-      retState = "LandGPSFail";
+      retState = 'LandGPSFail';
     case 10
-      retState = "ACRO";
+      retState = 'ACRO';
     case 11
-      retState = "UNUSED";
+      retState = 'UNUSED';
     case 12
-      retState = "DESCEND";
+      retState = 'DESCEND';
     case 13
-      retState = "TERMINATE";
+      retState = 'TERMINATE';
     case 14
-      retState = "OFF BRD";
+      retState = 'OFF BRD';
     case 15
-      retState = "STAB";
+      retState = 'STAB';
     case 16
-      retState = "Rattitude";
+      retState = 'Rattitude';
     case 17
-      retState = "Auto TO";
+      retState = 'Auto TO';
     case 18
-      retState = "Auto Land";
+      retState = 'Auto Land';
     case 19
-      retState = "FLW TGT";
+      retState = 'FLW TGT';
     case 20
-      retState = "Prec Land";
+      retState = 'Prec Land';
     case 21
-      retState = "Max";
+      retState = 'Max';
     otherwise
-      retState = "Not supported";
+      retState = 'Not supported';
   end
   
   
